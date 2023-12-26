@@ -74,5 +74,13 @@ public class AnalisisPishing {
         System.out.println("Total de puntos: " + totalPuntos);
     
     }
-    
+ private static int contador(String linea, String palabra) {
+        int contador = 0;
+        int indice = linea.indexOf(palabra);
+        while (indice != -1) {
+            contador++;
+            indice = linea.indexOf(palabra, indice + 1);
+        }
+        return contador;
+    }   
 }
