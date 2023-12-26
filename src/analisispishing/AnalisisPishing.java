@@ -46,6 +46,32 @@ public class AnalisisPishing {
         lista.put("Facebook", 3);
         lista.put("Gmail", 3);
         lista.put("Instagram", 3);
+        
+        String texto = "C:/Users/User/Documents/NetBeansProjects/AnalisisPishing/src/analisispishing/lista.txt";
+        int totalPuntos = 0;
+        Map<String, Integer> ocurrencias = new HashMap<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(texto))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                for (Map.Entry<String, Integer> entry : lista.entrySet()) {
+                    String palabraClave = entry.getKey();
+                    int puntos = entry.getValue();
+
+                    int ocurrenciasEnLinea = contador(linea, palabraClave);
+                    if (ocurrenciasEnLinea > 0) {
+                        totalPuntos += ocurrenciasEnLinea * puntos;
+                        ocurrencias.put(palabraClave, ocurrenciasEnLinea);
+                        System.out.println("Palabra clave: " + palabraClave + ", Ocurrencias: " + ocurrenciasEnLinea +", Puntos: " + ocurrenciasEnLinea * puntos);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Total de puntos: " + totalPuntos);
+    
     }
     
 }
