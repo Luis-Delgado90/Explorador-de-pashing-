@@ -46,6 +46,7 @@ public class AnalisisPishing {
         lista.put("Facebook", 3);
         lista.put("Gmail", 3);
         lista.put("Instagram", 3);
+        lista.put("Outlook", 3);
         
         String texto = "C:/Users/User/Documents/NetBeansProjects/AnalisisPishing/src/analisispishing/lista.txt";
         int totalPuntos = 0;
